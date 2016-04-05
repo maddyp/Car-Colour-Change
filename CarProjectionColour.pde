@@ -1,4 +1,5 @@
 import g4p_controls.*;
+PImage back;
 
 GKnob knbRed, knbGreen, knbBlue;
 GLabel label;
@@ -9,10 +10,11 @@ int kx, ky;
 void setup() {
   fullScreen();
   car = loadShape("car.svg");
+  back = loadImage("1920.png");
   
   r = g = b = 160;
-  kx = 550;
-  ky = 120;
+  kx = 600;
+  ky = 300;
 
   knbRed = new GKnob(this, kx, ky, 150, 150, 0.9);
   knbRed.setTurnRange(150, 270);
@@ -37,11 +39,13 @@ void setup() {
 }
 
 void draw() {
-  background(255, 220, 255);
+  background(back);
   car.disableStyle(); 
   // Color sampler
   fill(r, g, b);
-  shape(car, 800, 500, 200, 200);
+  shapeMode(CENTER);
+  shape(car, 787, 535, 218, 317);
+// image(pilogo, 0,0);
 }
 
 void handleKnobEvents(GValueControl knob, GEvent event) {
