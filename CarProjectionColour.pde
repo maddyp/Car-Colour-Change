@@ -10,7 +10,7 @@ int kx, ky;
 void setup() {
   fullScreen();
   car = loadShape("car.svg");
-  back = loadImage("1920.png");
+  back = loadImage("carpi-01.png");
   
   r = g = b = 160;
   kx = 600;
