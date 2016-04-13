@@ -1,5 +1,5 @@
 import g4p_controls.*;
-PImage back;
+PImage back, carasset,carassetmask;
 
 GKnob knbRed, knbGreen, knbBlue;
 GLabel label;
@@ -7,14 +7,18 @@ PShape car;
 int r, g, b;
 int kx, ky;
 
+
 void setup() {
-  fullScreen();
+  fullScreen(P2D);
   car = loadShape("car.svg");
-  back = loadImage("carpi-01.png");
+  back = loadImage("racetrack.png");
+  carasset = loadImage("assetcar.png");
+  carassetmask = loadImage("assetcarmask.png");
+  carasset.mask(carassetmask);
   
   r = g = b = 160;
-  kx = 600;
-  ky = 300;
+  kx = 500;
+  ky = 50;
 
   knbRed = new GKnob(this, kx, ky, 150, 150, 0.9);
   knbRed.setTurnRange(150, 270);
@@ -44,8 +48,8 @@ void draw() {
   // Color sampler
   fill(r, g, b);
   shapeMode(CENTER);
-  shape(car, 787, 535, 218, 317);
-// image(pilogo, 0,0);
+  shape(car, 1130/*pos X*/, 545/*pos Y*/, 900 /*scale X*/, 330 /*scale Y*/);
+  image(carasset,0,0);
 }
 
 void handleKnobEvents(GValueControl knob, GEvent event) {
